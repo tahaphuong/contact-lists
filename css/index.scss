@@ -1,0 +1,252 @@
+$backgroundColor: #f8f9fc;
+$dark: #363636;
+$mainBlue: #2431b6;
+$mainPink: #efa0b8;
+$shadowColor: #2430b60a;
+$shadedTextColor: #9396b18c;
+$lightPink: #f7f2f7;
+$lightFontFamily: 'Circular Air Book';
+
+html, body {
+  background-color: $backgroundColor;
+  font-family: 'Circular', sans-serif;
+  // font-family: 'Work Sans', sans-serif;
+  // font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: calc(100vh - 6vw);
+  padding: 3vw 4vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+// :-webkit-scrollbar — the entire scrollbar.
+::-webkit-scrollbar {
+  width: 10px;
+  cursor: pointer;
+}
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: #cdd0e4;
+  border-radius: 10px;
+}
+// ::-webkit-scrollbar-track {
+//   width: 10px;
+//   background-color: $shadowColor;
+//   border-radius: 10px;
+// }
+::-webkit-scrollbar-track {
+  width: 5px;
+  // background-color: $shadowColor;
+  border-radius: 10px;
+
+  background-image: url("https://www.salescoachnow.com/wp-content/uploads/2019/02/straight-vertical-line-png-8.png");
+
+  background-size: 10px 100%;
+  background-position: center;
+}
+
+*:focus {
+  border: none;
+  outline: none;
+}
+
+#header {
+  height: 15%;
+}
+
+#body {
+  height: 85%;
+  display: flex;
+}
+
+// header
+#header-title {
+  font-weight: 600;
+  font-size: 38px;
+  color: $dark;
+}
+
+// titles
+.body-title {
+  font-weight: 600;
+  font-size: 18px;
+  color: $mainBlue;
+
+  margin-bottom: 20px;
+}
+
+#contact-form {
+  height: 400px;
+  width: 280px;
+  margin-right: 40px;
+  margin-top: 30px;
+}
+
+.add-field {
+  padding: 7px;
+  margin-bottom: 25px;
+  border-radius: 7px;
+  background-color: #fdfdfd;
+  box-shadow: 0px 10px 60px 10px $shadowColor;
+}
+
+.add-field-title {
+  font-weight: 700;
+  font-size: 11px;
+  color: $shadedTextColor;
+  text-transform: uppercase;
+}
+
+.add-field-input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+
+  font-family: $lightFontFamily, sans-serif;
+  font-size: 18px;
+  color: rgba($dark, 0.9);
+}
+
+#add-button {
+  padding: 8px 15px;
+
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: $mainPink;
+
+  font-family: "Circular";
+  font-size: 13px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+
+  box-shadow: 0px 10px 60px 0px rgba($mainPink, 0.4);
+  transition: all 0.4s;
+}
+
+#add-button:hover {
+  cursor: pointer;
+  opacity: 0.7
+}
+#error-message {
+  margin-top: 10px;
+  color: rgb(216, 123, 123);
+  font-size: 11px;
+  font-family: $lightFontFamily;
+}
+
+#list {
+  width: calc(92vw - 320px)
+}
+#list-contacts {
+  width: 100%;
+  height: 68vh;
+  overflow-y: scroll;
+}
+
+.contact-item:hover {
+  cursor: pointer;
+  background-color: rgba($mainPink, 0.08);
+  transition: all 0.4s;
+}
+.contact-item {
+  height: 70px;
+  width: 100%;
+  border-radius: 15px;
+
+  display: flex;
+  color: rgba($dark, 0.85);
+  white-space: nowrap;
+}
+
+.contact-item>div>div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.contact-item-avatar {
+  width: 10%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-item-avatar>div {
+  height: 40px;
+  width: 40px;
+
+  border-radius: 50%;
+  // background-color: $mainPink;
+  // background-image: url("https://cdn4.iconfinder.com/data/icons/basic-user-interface-2/512/User_Interface-10-512.png");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSnpDEqAmrYDV5oACtfdBJJXSX86rmXDWl-DDtYPVFB4zgIQPCq&usqp=CAU");
+  opacity: 0.8;
+  background-position: center;
+  background-size: cover;
+}
+.contact-item-info {
+  width: 25%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.contact-item-info>.contact-item-main-info {
+  width: 85%;
+  font-size: 16px;
+}
+
+.contact-item-info>.contact-item-sub-info {
+  width: 60%;
+
+  font-family: $lightFontFamily;
+  font-size: 12px;
+  color: rgba($dark, 0.5);
+
+}
+.contact-item-phone {
+  width: 20%;
+  height: 100%;
+
+  font-family: $lightFontFamily;
+  font-size: 14px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.contact-item-email {
+  width: 30%;
+  height: 100%;
+
+  font-family: $lightFontFamily;
+  font-size: 14px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.contact-item-email>div {
+  width: calc(100% - 10px);
+}
+
+.contact-item-action {
+  width: 15%;
+  height: 100%;
+
+  font-size: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

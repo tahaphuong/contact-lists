@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> -->
+  <link href="//db.onlinewebfonts.com/c/02d8f1743ede250c7c9865f1574d7cc6?family=Circular+Book" rel="stylesheet" type="text/css"/>
+  <link href="//db.onlinewebfonts.com/c/bd6213fa49bedc8cb050c63f14360efa?family=Circular+Air+Book" rel="stylesheet" type="text/css"/>
+  <link href="css/index.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <div id="header">
+    <div id="header-title">Connect <ion-icon name="people-outline" style="position: relative; top: 0.15em"></ion-icon></div>
+  </div>
+
+  <div id="body">
+    <div id="action">
+      <div class="body-title">New contact <ion-icon name="arrow-down-outline" style="position: relative; top: 0.15em"></ion-icon></div>
+
+        <form id="contact-form">
+          <div class="add-field">
+            <div class="add-field-title"><ion-icon name="person-outline" style="position: relative; top: 0.15em"></ion-icon> name</div>
+            <input class="add-field-input" maxlength="100" name="name"/>
+          </div>
+          <div class="add-field">
+            <div class="add-field-title"><ion-icon name="location-outline" style="position: relative; top: 0.15em"></ion-icon> company/location</div>
+            <input class="add-field-input" maxlength="70" name="location"/>
+          </div>
+          <div class="add-field">
+            <div class="add-field-title"><ion-icon name="call-outline" style="position: relative; top: 0.15em"></ion-icon> phone</div>
+            <input class="add-field-input" maxlength="15" name="phone"/>
+          </div>
+          <div class="add-field">
+            <div class="add-field-title"><ion-icon name="mail-outline" style="position: relative; top: 0.15em"></ion-icon> email</div>
+            <input class="add-field-input" maxlength="70" name="email"/>
+          </div>
+          <button id="add-button" type="button">Add to list +</ion-icon></button>
+          <div id="error-message"></div>
+        </form>
+    </div>
+    <div id="list">
+      <div class="body-title">Contacts list</div>
+      <div id="list-contacts">
+        
+      </div>
+    </div>
+  </div>
+  <script src="js/index.js"></script>
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+</html>
