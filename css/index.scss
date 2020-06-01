@@ -6,6 +6,7 @@ $shadowColor: #2430b60a;
 $shadedTextColor: #9396b18c;
 $lightPink: #f7f2f7;
 $lightFontFamily: 'Circular Air Book';
+$addFieldColor: #fdfdfd;
 
 html, body {
   background-color: $backgroundColor;
@@ -26,6 +27,12 @@ body {
   justify-content: space-between;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    box-shadow: 0 0 0 30px $addFieldColor inset !important;
+}
 // :-webkit-scrollbar — the entire scrollbar.
 ::-webkit-scrollbar {
   width: 10px;
@@ -93,7 +100,7 @@ body {
   padding: 7px;
   margin-bottom: 25px;
   border-radius: 7px;
-  background-color: #fdfdfd;
+  background-color: $addFieldColor;
   box-shadow: 0px 10px 60px 10px $shadowColor;
 }
 
