@@ -10,3 +10,7 @@ controller.addNewItemToServer = async (item, onSuccess, onError) => {
     console.error("error")
   }
 }
+
+controller.deleteItem = async (id) => {
+  console.log(id)
+}

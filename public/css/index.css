@@ -142,10 +142,59 @@ input:-webkit-autofill:active {
   width: calc(92vw - 320px);
 }
 
+#list-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 #list-contacts {
   width: 100%;
   height: 68vh;
   overflow-y: scroll;
+}
+
+#list-search-bar {
+  height: 30px;
+  width: 230px;
+  background-color: white;
+  border-radius: 30px;
+  -webkit-box-shadow: 5px 5px 10px 0 #2430b60a;
+          box-shadow: 5px 5px 10px 0 #2430b60a;
+}
+
+#list-search-bar-input {
+  cursor: pointer;
+  width: 180px;
+  padding-left: 7px;
+  margin-left: 5px;
+  outline: none;
+  border: none;
+  font-family: "Circular Air Book";
+}
+
+#list-search-bar-button {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  background-color: #efa0b8;
+  color: white;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+#list-search-bar-button:hover {
+  opacity: 0.75;
+}
+
+#list-search-bar-button:active {
+  opacity: 0.6;
 }
 
 .contact-item:hover {
@@ -274,5 +323,16 @@ input:-webkit-autofill:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.delete-button {
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
 }
 /*# sourceMappingURL=index.css.map */
