@@ -196,7 +196,7 @@ input:-webkit-autofill:active {
 }
 
 .contact-item-info {
-  width: 25%;
+  width: 20%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -262,7 +262,7 @@ input:-webkit-autofill:active {
 }
 
 .contact-item-action {
-  width: 15%;
+  width: 20%;
   height: 100%;
   font-size: 20px;
   display: -webkit-box;
