@@ -1,8 +1,11 @@
-view = {}
+let view = {}
 
-view.showListItem = async () => {
+view.showListItem = async () => {  
   let listContacts = document.getElementById("list-contacts")
   listContacts.innerHTML = ``
+
+  console.log("hello")
+  console.table(model.listDatabase)
 
   for (let item of model.listDatabase) {
     let contactItem = `

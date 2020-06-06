@@ -1,7 +1,12 @@
 window.onload = init
 
-function init() {
+var model = {}
+
+model.listDatabase = []
+
+async function init() {
   // Auth here
+  await controller.getAllItems()
   view.showListItem()
 
   // Delete item
