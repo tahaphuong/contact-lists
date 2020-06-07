@@ -1,38 +1,7 @@
-// var controller = {}
-// async function getAllItems() {
-// }
-// controller.addNewItemToServer = async (item, onSuccess, onError) => {
-//   console.log(item)
-//   if (item.hasOwnProperty("name")) {
-//     onSuccess(item)
-//     console.table(item)
-//   } else {
-//     onError("error!")
-//     console.error("error")
-//   }
-// }
+const view = {}
 
-// controller.deleteItem = async (id) => {
-//   console.log(id)
-// }
-async function showListItem() {  
-  const xhr = new XMLHttpRequest()
-  const apiRoute = "api/contact/"
-  xhr.open("GET", apiRoute, true);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onreadystatechange = () => {
-    if(xhr.readyState === XMLHttpRequest.DONE) {
-      var status = xhr.status;
-      if (status === 0 || (status >= 200 && status < 400)) {
-        let data = JSON.parse(xhr.responseText)  
-        console.table(data)
-
-        let listContacts = document.getElementById("list-contacts")
-        listContacts.innerHTML = ``
-
-        for (let item of data) {
-          let contactItem = `
-          <div class="contact-item">
+view.contactItemHTML = (item) =>
+  ` <div class="contact-item" objectid="${item.id}">
             <div class="contact-item-avatar">
               <div></div>
             </div>
@@ -52,20 +21,20 @@ async function showListItem() {
               <button deleteobjectid="${item.id}" class="delete-button"><ion-icon style="color: #e96b6b" name="trash-outline"></ion-icon></button>
             </div>
           </div>
-          `
-          listContacts.innerHTML += contactItem;
-        }
-        deleteItem()
-      } else {
-        console.error("oh no")
-        return null
-      }
-    }
+  `
+
+view.showListItem = async (data) => {
+  let listContacts = document.getElementById("list-contacts")
+  listContacts.innerHTML = ``
+
+  for (let item of data) {
+    let contactItem = view.contactItemHTML(item)
+    listContacts.innerHTML += contactItem;
   }
-  xhr.send();
+  view.deleteItem()
 }
 
-async function addNewItem() {
+view.addNewItem = async () => {
   let errorMessage = document.getElementById("error-message")
   let form = document.getElementById("contact-form")
   let name = form.name.value
@@ -78,7 +47,7 @@ async function addNewItem() {
     global.validator("string", phone),
   ]
 
-  let objItem = {
+  let item = {
     id: String(Date.now()),
     name: name,
     location: location,
@@ -87,12 +56,14 @@ async function addNewItem() {
   }
 
   if (!validateData.includes(false)) {
-    await controller.addNewItemToServer(objItem, () => {
-      console.log("yay")
-      console.table(objItem)
-      // model.listDatabase.push(objItem)
+    await controller.addNewItemToServer(item, () => {
+      console.table(item)
+      model.addNewItem(item)
+
+      let listContacts = document.getElementById("list-contacts")
+      listContacts.innerHTML += view.contactItemHTML(item)
     }, () => {
-      console.error("oh no")
+      console.error("FAILED adding new data")
     })
     form.name.value = ""
     form.location.value = ""
@@ -103,13 +74,14 @@ async function addNewItem() {
   }
 }
 
-async function deleteItem() {
+view.deleteItem = async () => {
   let deleteButtons = document.querySelectorAll(".delete-button");
   for (let deleteButton of deleteButtons) {
     let itemId = deleteButton.getAttribute("deleteobjectid")
     deleteButton.onclick = deleteContact
+
     function deleteContact() {
       console.log(itemId)
     }
-  } 
+  }
 }

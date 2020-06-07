@@ -1,4 +1,4 @@
-global = {}
+const global = {}
 
 global.validator = (type, obj) => {
   switch(type) {
