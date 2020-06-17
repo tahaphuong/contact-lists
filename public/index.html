@@ -10,52 +10,12 @@
   <script src="js/global.js"></script>
   <script src="js/controller.js"></script>
   <script src="js/view.js"></script>
-  <script src="js/index.js"></script>
   <script src="js/model.js"></script>
+  <script src="js/index.js"></script>
   <title>Contacts list</title>
 </head>
 <body>
-  <div id="header">
-    <div id="header-title">Connect <ion-icon name="people-outline" style="position: relative; top: 0.15em"></ion-icon></div>
-  </div>
-
-  <div id="body">
-    <div id="action">
-      <div class="body-title">New contact <ion-icon name="arrow-down-outline" style="position: relative; top: 0.15em"></ion-icon></div>
-
-        <form id="contact-form">
-          <div class="add-field">
-            <div class="add-field-title"><ion-icon name="person-outline" style="position: relative; top: 0.15em"></ion-icon> name</div>
-            <input class="add-field-input" maxlength="100" name="name"/>
-          </div>
-          <div class="add-field">
-            <div class="add-field-title"><ion-icon name="location-outline" style="position: relative; top: 0.15em"></ion-icon>location</div>
-            <input class="add-field-input" maxlength="70" name="location"/>
-          </div>
-          <div class="add-field">
-            <div class="add-field-title"><ion-icon name="call-outline" style="position: relative; top: 0.15em"></ion-icon> phone</div>
-            <input class="add-field-input" maxlength="15" name="phone"/>
-          </div>
-          <div class="add-field">
-            <div class="add-field-title"><ion-icon name="mail-outline" style="position: relative; top: 0.15em"></ion-icon> email</div>
-            <input class="add-field-input" maxlength="70" name="email"/>
-          </div>
-          <button id="add-button" type="button">Add to list +</ion-icon></button>
-          <div id="error-message"></div>
-        </form>
-    </div>
-    <div id="list">
-      <div id="list-header">
-        <div class="body-title">Contacts list</div>
-        <div id="list-search-bar">
-          <input id="list-search-bar-input" maxlength="50"/>
-          <button id="list-search-bar-button"><ion-icon name="search-outline"></ion-icon></button>
-        </div>
-      </div>
-      <div id="list-contacts"></div>
-    </div>
-  </div>
-  
+  <div id="app"></div>
   <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 </html>

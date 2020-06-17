@@ -1,14 +1,100 @@
 html, body {
   background-color: #f8f9fc;
-  font-family: 'Circular', sans-serif;
-  overflow: hidden;
+  font-family: 'Circular Air Book', sans-serif;
   padding: 0;
   margin: 0;
 }
 
-body {
+#credit {
+  color: #9396b18c;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+#credit:hover {
+  text-decoration: underline;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+#login-screen {
+  height: calc(100vh - 10vw);
+  width: 80vw;
+  padding: 5vw 10vw;
+  overflow: hidden;
+}
+
+.auth-header {
+  color: #363636;
+  font-size: 40px;
+  font-family: "Circular";
+}
+
+.auth-header > .auth-header-highlight {
+  color: #2431b6;
+}
+
+#log-in-form {
+  width: 300px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+#log-in-form .auth-field {
+  width: 100%;
+  border-bottom: 0.5px solid #9396b18c;
+  padding-bottom: 3px;
+  margin-bottom: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#log-in-form .auth-field .auth-field-title {
+  width: 10%;
+  font-size: 20px;
+  text-align: center;
+  color: rgba(54, 54, 54, 0.5);
+}
+
+#log-in-form .auth-field .auth-field-input {
+  width: 90%;
+  background-color: transparent;
+  color: #363636;
+  font-size: 16px;
+  font-family: "Circular Air Book";
+}
+
+.auth-footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.auth-footer #to-register-link {
+  cursor: pointer;
+  font-family: "Circular Air Book";
+  font-size: 14px;
+  color: rgba(54, 54, 54, 0.8);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.auth-footer #to-register-link:hover {
+  border-bottom: 3px solid #efa0b8;
+}
+
+#user-screen {
   height: calc(100vh - 6vw);
   padding: 3vw 4vw;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -109,7 +195,7 @@ input:-webkit-autofill:active {
   color: rgba(54, 54, 54, 0.9);
 }
 
-#add-button {
+.main-button {
   padding: 8px 15px;
   outline: none;
   border: none;
@@ -126,12 +212,12 @@ input:-webkit-autofill:active {
   transition: all 0.4s;
 }
 
-#add-button:hover {
+.main-button:hover {
   cursor: pointer;
   opacity: 0.7;
 }
 
-#error-message {
+.error-message {
   margin-top: 10px;
   color: #d87b7b;
   font-size: 11px;

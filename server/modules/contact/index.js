@@ -1,125 +1,150 @@
+const model = require("./model")
 const fs = require('fs')
-const path = require('path')
-const databaseFilePath = path.join(__dirname, "contacts.json")
+const { json } = require('body-parser')
 
-function readFile() {
-  let data = fs.readFileSync(databaseFilePath, 'utf-8')
-  return JSON.parse(data)
+function successTemplate(data) {
+  return {
+    success: true,
+    data: data
+  }
 }
 
-function getListContacts(req, res, next) {
+function failTemplate(message) {
+  return {
+    success: false,
+    message: message
+  }
+}
+
+// function writeFile(data) {
+//   fs.writeFileSync(databaseFilePath, JSON.stringify(data), 'utf-8')
+// }
+
+async function getListContacts(req, res, next) {
   try {
-    res.json(readFile())
+    let data = await model.find({})
+    await res.json(
+      successTemplate(data)
+    )
   } catch(err) {
     next(err)
   }
 }
 
-function findContactByName(req, res, next) {
+async function createNewContact(req, res, next) {
   try {
-    let name = req.params.name
+    // let list = readFile()
+    let rawData = req.body
 
-    if(!name) {
-      throw new Error('Params name required!')
-    }
-    let person = list.find(item => item.name == name)
-    if(!person) {
-      throw new Error(`Not found person with name: '${name}'`)
-    }
+    // if(!newContact || !newContact.id) {
+    //   throw new Error(`Require 'id'!`)
+    // }
+    
+    // if(!newContact || !newContact.name) {
+    //   throw new Error(`Require 'name'!`)
+    // }
 
-    res.json(person)
-  } catch(err) {
-    next(err)
-  }
-}
-
-function findContactByNumber(req, res, next) {
-  try {
-    let number = req.params.phone
-
-    if(!number) {
-      throw new Error('Params number required!')
-    }
-    let person = list.find(item => item.phone == number)
-    if(!person) {
-      throw new Error(`Not found person with name: '${number}'`)
-    }
-
-    res.json(person)
-  } catch(err) {
-    next(err)
-  }
-}
-
-
-function createNewContact(req, res, next) {
-  try {
-    let newContact = req.body
-    console.log(newContact)
-    if(!newContact || !newContact.name) {
-      throw new Error(`Require 'name'!`)
-    }
-
-    if(!newContact || !newContact.phone) {
-      throw new Error(`Require person 'number'!`)
-    }
-
-    newContact.id = String(Date.now())
-    list.push(newContact)
-    res.json(newContact)
-  } catch(err) {
-    next(err)
-  }
-}
-
-function updateContactHandler(req, res, next) {
-  try {
-    let data = req.body
-    let newContact = req.body.name
-    let newNumber = req.body.phone
-    let email = req.body.email
-    let location = req.body.location
-
-    if(!data || !data.phone) {
-      throw new Error(`Require person 'number'!`)
-    }
-    if(!newContact) {
-      throw new Error(`Require 'name'!`)
-    }
-
-    let person = list.find(person => person.name == name)
-    if(!person) {
-      throw new Error(`Not found person with name '${data.id}'`)
-    }
-    person.name = newContact
-    person.phone = newNumber
-    person.location = location
-    person.email = email
-
-    res.json(person)
-  } catch(err) {
-    next(err)
-  }
+    // if(!newContact || !newContact.phone) {
+    //   throw new Error(`Require person 'number'!`)
+    // }
+    // list.splice(0, 0, newContact)
+    // writeFile(list)
+    let data = await model.create(rawData)
+    await res.json(
+      successTemplate(data)
+    )
+  } catch(err) {next(err)}
 }
 
 function deleteContactHandler(req, res, next) {
-  try {
-    let id = req.params.id
+  throw new Error('This feature is not yet supported')
+  // try {
+  //   let list = readFile()
+  //   let id = req.params.id
     
-    if(!id) {
-      throw new Error(`Require person 'id'!`)
-    }
+  //   if(!id) {
+  //     throw new Error(`Require person 'id'!`)
+  //   }
+  //   let personIndex = list.findIndex(person => person.id == id)
+  //   if(!personIndex < 0) {
+  //     throw new Error(`Not found person with name: '${id}'`)
+  //   }
+  //   list.splice(personIndex, 1)
+  //   writeFile(list)
 
-    let personIndex = list.findIndex(person => person.id == id)
-    if(!personIndex < 0) {
-      throw new Error(`Not found person with name: '${id}'`)
-    }
-    let person = list.splice(personIndex, 1)
-    
-    res.json(list)
-  } catch(err) {
-    next(err)
-  }
+  //   res.json(list)
+  // } catch(err) {
+  //   next(err)
+  // }
+}
+
+function findContactByName(req, res, next) {
+  throw new Error('This feature is not yet supported')
+  // try {
+  //   let name = req.params.name
+
+  //   if(!name) {
+  //     throw new Error('Params name required!')
+  //   }
+  //   let person = list.find(item => item.name == name)
+  //   if(!person) {
+  //     throw new Error(`Not found person with name: '${name}'`)
+  //   }
+
+  //   res.json(person)
+  // } catch(err) {
+  //   next(err)
+  // }
+}
+
+function findContactByNumber(req, res, next) {
+  throw new Error('This feature is not yet supported')
+  // try {
+  //   let number = req.params.phone
+
+  //   if(!number) {
+  //     throw new Error('Params number required!')
+  //   }
+  //   let person = list.find(item => item.phone == number)
+  //   if(!person) {
+  //     throw new Error(`Not found person with name: '${number}'`)
+  //   }
+
+  //   res.json(person)
+  // } catch(err) {
+  //   next(err)
+  // }
+}
+
+function updateContactHandler(req, res, next) {
+  throw new Error('This feature is not yet supported')
+  // try {
+  //   let data = req.body
+  //   let newContact = req.body.name
+  //   let newNumber = req.body.phone
+  //   let email = req.body.email
+  //   let location = req.body.location
+
+  //   if(!data || !data.phone) {
+  //     throw new Error(`Require person 'number'!`)
+  //   }
+  //   if(!newContact) {
+  //     throw new Error(`Require 'name'!`)
+  //   }
+
+  //   let person = list.find(person => person.name == name)
+  //   if(!person) {
+  //     throw new Error(`Not found person with name '${data.id}'`)
+  //   }
+  //   person.name = newContact
+  //   person.phone = newNumber
+  //   person.location = location
+  //   person.email = email
+
+  //   res.json(person)
+  // } catch(err) {
+  //   next(err)
+  // }
 }
 
 module.exports = {

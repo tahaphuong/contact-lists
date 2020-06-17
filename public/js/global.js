@@ -1,6 +1,6 @@
-const global = {}
+const myGlobal = {}
 
-global.validator = (type, obj) => {
+myGlobal.validator = (type, obj) => {
   switch(type) {
     case "string":
       return obj != null && obj.length != 0

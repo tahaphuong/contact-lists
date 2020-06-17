@@ -1,20 +1,11 @@
-const model = {
-  listDatabase: 
-  [
-    {
-      id: "876789",
-      name: "hello",
-      location: "Hanoi",
-      phone: "8726387968732",
-      email: "1676@uhu.com"
-    }
-  ]
-}
+// const model = {
+//   listDatabase: []
+// }
 
-model.saveListContacts = function(data) {
-  model.listDatabase = data
-}
+// model.saveListContacts = (data)=> {
+//   model.listDatabase = data
+// }
 
-model.addNewContact = (item) => {
-  model.listDatabase.push(item)
-}
+// model.addNewContact = (item) => {
+//   model.listDatabase.splice(0, 0, item)
+// }

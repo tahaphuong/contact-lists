@@ -6,21 +6,102 @@ $shadowColor: #2430b60a;
 $shadedTextColor: #9396b18c;
 $lightPink: #f7f2f7;
 $lightFontFamily: 'Circular Air Book';
+$boldFontFamily: 'Circular';
 $addFieldColor: #fdfdfd;
 
 html, body {
   background-color: $backgroundColor;
-  font-family: 'Circular', sans-serif;
+  font-family: 'Circular Air Book', sans-serif;
   // font-family: 'Work Sans', sans-serif;
   // font-family: 'Inter', sans-serif;
-  overflow: hidden;
   padding: 0;
   margin: 0;
 }
+#credit {
+  color: $shadedTextColor;
+  font-size: 13px;
+  text-decoration: none;
+}
+#credit:hover {
+  text-decoration: underline;
+}
+input {
+  outline: none;
+  border: none;
+}
 
-body {
+#login-screen {
+  height: calc(100vh - 10vw);
+  width: 80vw;
+  padding: 5vw 10vw;
+
+  overflow: hidden;
+}
+.auth-header {
+  color: $dark;
+  font-size: 40px;
+  font-family: $boldFontFamily;
+}
+
+.auth-header>.auth-header-highlight {
+  color: $mainBlue;
+}
+
+#log-in-form {
+  width: 300px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+
+}
+
+#log-in-form .auth-field {
+  width: 100%;
+  border-bottom: 0.5px solid $shadedTextColor;
+  padding-bottom: 3px;
+  margin-bottom: 40px;
+  display: flex
+}
+
+#log-in-form .auth-field .auth-field-title {
+  width: 10%;
+  font-size: 20px;
+  text-align: center;
+  color: rgba($dark, 0.5)
+}
+#log-in-form .auth-field .auth-field-input {
+  width: 90%;
+  background-color: transparent;
+
+  color: $dark;
+  font-size: 16px;
+  font-family: $lightFontFamily;
+}
+
+.auth-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-footer #to-register-link {
+  cursor: pointer;
+  font-family: $lightFontFamily;
+  font-size: 14px;
+
+  color: rgba($dark, 0.8);  
+  transition: all 0.4s;
+}
+
+.auth-footer #to-register-link:hover {
+  border-bottom: 3px solid $mainPink;
+}
+
+// user
+
+#user-screen {
   height: calc(100vh - 6vw);
   padding: 3vw 4vw;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -121,7 +202,7 @@ input:-webkit-autofill:active  {
   color: rgba($dark, 0.9);
 }
 
-#add-button {
+.main-button {
   padding: 8px 15px;
 
   outline: none;
@@ -138,12 +219,12 @@ input:-webkit-autofill:active  {
   box-shadow: 0px 10px 60px 0px rgba($mainPink, 0.4);
   transition: all 0.4s;
 }
-
-#add-button:hover {
+.main-button:hover {
   cursor: pointer;
   opacity: 0.7
 }
-#error-message {
+
+.error-message {
   margin-top: 10px;
   color: rgb(216, 123, 123);
   font-size: 11px;
