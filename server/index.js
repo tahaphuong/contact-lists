@@ -1,27 +1,35 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const path = require('path')
+
+const router = require('../router')
 
 const app = express()
-const router = require('./router')
-const errorHandler = require('./error-handler')
-
 const port = 9000
+const publicPath = path.resolve(__dirname, '../public')
 
-// using middlewares
 app.use(bodyParser.json())
 
-// routing
-app.use(router)
 
-// // error handling
-app.use(errorHandler)
+//routing
+app.use('/', express.static(publicPath))
 
-// listening
-app.listen(port, (err) => {
-  if(err) {
-    console.error('Server open failed!')
+
+//apis routing
+app.use('/api', router)
+
+
+//error Handler
+app.use((err, req, res, next) => {
     console.error(err)
-  } else {
-    console.log(`Server opened at port: ${port}`)
-  }
+    res.status(500).send(err.message)
+})
+
+app.listen(port, (err) => {
+    if(err){
+        console.error(err)
+    }
+    else{
+        console.log('Server opens at port ' + port)
+    }
 })

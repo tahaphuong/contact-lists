@@ -2,10 +2,10 @@ const express = require ('express')
 
 
 const router = new express.Router()
-const { listName, createName } = require('./module/name/name.js')
-const { listPhoneNumber, createNumber } = require('./module/phonenumber/phonenumber.js')
-const { listEmail, createEmail } = require('./module/email/email.js')
-const { listLocation, createLocation } = require('./module/location/location.js')
+const { listName, createName } = require('./server/module/name/name.js')
+const { listPhoneNumber, createNumber } = require('./server/module/phonenumber/phonenumber.js')
+const { listEmail, createEmail } = require('./server/module/email/email.js')
+const { listLocation, createLocation } = require('./server/module/location/location.js')
 
 router.get('/name', async (req, res, next)=>{
     try{
